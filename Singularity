@@ -1,5 +1,5 @@
 Bootstrap: debootstrap
-OSVersion: bionic
+OSVersion: cosmic
 MirrorURL: http://us.archive.ubuntu.com/ubuntu/
 
 %post
