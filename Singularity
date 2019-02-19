@@ -4,7 +4,7 @@ MirrorURL: http://us.archive.ubuntu.com/ubuntu/
 
 %post
 apt-get -y update
-apt-get -y install software-properties-common python-software-properties build-essential curl
+apt-get -y install software-properties-common build-essential curl
 add-apt-repository -y ppa:git-core/ppa
 curl -s https://packagecloud.io/install/repositories/github/git-lfs/script.deb.sh | sudo bash
 apt-get -y install git-lfs
