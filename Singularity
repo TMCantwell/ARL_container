@@ -1,5 +1,5 @@
 Bootstrap: debootstrap
-OSVersion: cosmic
+OSVersion: zesty
 MirrorURL: http://us.archive.ubuntu.com/ubuntu/
 
 %post
