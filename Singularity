@@ -1,5 +1,5 @@
 Bootstrap: debootstrap
-OSVersion: zesty
+OSVersion: yakkety
 MirrorURL:  http://us.archive.ubuntu.com/ubuntu/
 
 %post
