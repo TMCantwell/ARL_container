@@ -1,6 +1,5 @@
-Bootstrap: debootstrap
-OSVersion: zesty
-MirrorURL: http://old-releases.ubuntu.com/ubuntu/
+Bootstrap: docker
+From: ubuntu:latest
 
 %post
 apt-get -y update
