@@ -1,9 +1,8 @@
-Bootstrap: docker
-From: ubuntu:latest
+Bootstrap: library
+From: ubuntu:18.04
 
 %post
 apt-get -y update
-apt-get -y install apt-utils
 apt-get -y install software-properties-common build-essential curl
 add-apt-repository -y ppa:git-core/ppa
 curl -s https://packagecloud.io/install/repositories/github/git-lfs/script.deb.sh | bash
