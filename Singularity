@@ -6,7 +6,7 @@ MirrorURL: http://old-releases.ubuntu.com/ubuntu/
 apt-get -y update
 apt-get -y install software-properties-common build-essential curl
 add-apt-repository -y ppa:git-core/ppa
-curl -s https://packagecloud.io/install/repositories/github/git-lfs/script.deb.sh | sudo bash
+curl -s https://packagecloud.io/install/repositories/github/git-lfs/script.deb.sh | bash
 apt-get -y install git-lfs
 git lfs install
 apt-get -y install python3.6-dev python3-pip python3-tk virtualenv virtualenvwrapper
