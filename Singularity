@@ -1,6 +1,6 @@
 Bootstrap: debootstrap
 OSVersion: zesty
-MirrorURL: http://us.archive.ubuntu.com/ubuntu/
+MirrorURL: http://old-releases.ubuntu.com/ubuntu/
 
 %post
 apt-get -y update
