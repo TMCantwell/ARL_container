@@ -1,7 +1,7 @@
-Bootstrap: library
-From: ubuntu:18.04
+Bootstrap: docker
+From: ubuntu:latest
 
-%post
+%post -c /bin/bash
 apt-get -y update
 apt-get -y install software-properties-common build-essential curl
 add-apt-repository -y ppa:git-core/ppa
@@ -9,14 +9,15 @@ curl -s https://packagecloud.io/install/repositories/github/git-lfs/script.deb.s
 apt-get -y install git-lfs
 git lfs install
 apt-get -y install python3.6-dev python3-pip python3-tk virtualenv virtualenvwrapper
+export WORKON_HOME=$HOME/.virtualenvs
+source /usr/share/virtualenvwrapper/virtualenvwrapper.sh
 apt-get -y install graphviz
 apt-get -y install libopenmpi-dev
 apt-get -y install libcfitsio-dev
 pip3 install pipenv
 virtualenv -p python3.6 /arlvenv
 alias start-arlvenv="source /arlvenv/bin/activate"
-start-arlvenv
-pip install bokeh
+. /arlvenv/bin/activate
 pip install pytest
 pip install pylint
 pip install mpi4py
@@ -32,3 +33,4 @@ add2virtualenv /algorithm-reference-library
 %environment
 alias start-arlvenv="source /arlvenv/bin/activate"
 export PYTHONPATH=/algorithm-reference-library:$PYTHONPATH
+export XDG_RUNTIME_DIR=""
