@@ -15,6 +15,8 @@ curl -s https://packagecloud.io/install/repositories/github/git-lfs/script.rpm.s
 yum -y install git-lfs
 git lfs install
 yum -y install python36u-devel python36u-pip python36u-tkinter python-virtualenv python-virtualenvwrapper
+export WORKON_HOME=$HOME/.virtualenvs
+source /usr/bin/virtualenvwrapper.sh
 yum -y install graphviz
 yum -y install openmpi mpi4py-openmpi
 yum -y install cfitsio-devel
