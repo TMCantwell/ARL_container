@@ -27,6 +27,7 @@ alias start-arlvenv="source /arlvenv/bin/activate"
 pip install pytest
 pip install pylint
 pip install mpi4py
+pip install jupyter
 git clone https://github.com/SKA-ScienceDataProcessor/algorithm-reference-library
 cd algorithm-reference-library
 pip install -r requirements.txt
