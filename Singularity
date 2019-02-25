@@ -1,19 +1,23 @@
-Bootstrap: docker
-From: ubuntu:latest
+BootStrap: yum
+OSVersion: 7
+MirrorURL: http://mirror.centos.org/centos-%{OSVERSION}/%{OSVERSION}/os/$basearch/
+Include: yum wget
 
 %post -c /bin/bash
-apt-get -y update
-apt-get -y install software-properties-common build-essential curl
-add-apt-repository -y ppa:git-core/ppa
-curl -s https://packagecloud.io/install/repositories/github/git-lfs/script.deb.sh | bash
-apt-get -y install git-lfs
+yum -y update
+yum -y install yum-utils
+yum -y groupinstall development
+yum -y install https://centos7.iuscommunity.org/ius-release.rpm
+yum -y install curl
+yum -y install epel-release
+yum -y install git
+curl -s https://packagecloud.io/install/repositories/github/git-lfs/script.rpm.sh | bash
+yum -y install git-lfs
 git lfs install
-apt-get -y install python3.6-dev python3-pip python3-tk virtualenv virtualenvwrapper
-export WORKON_HOME=$HOME/.virtualenvs
-source /usr/share/virtualenvwrapper/virtualenvwrapper.sh
-apt-get -y install graphviz
-apt-get -y install libopenmpi-dev
-apt-get -y install libcfitsio-dev
+yum -y install python36u-devel python36u-pip python36u-tkinter python-virtualenv python-virtualenvwrapper
+yum -y install graphviz
+yum -y install openmpi mpi4py-openmpi
+yum -y install cfitsio-devel
 pip3 install pipenv
 virtualenv -p python3.6 /arlvenv
 alias start-arlvenv="source /arlvenv/bin/activate"
