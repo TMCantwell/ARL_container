@@ -32,6 +32,7 @@ cd to the algorithm reference library notebooks and start jupyter notebook
 `
 cd /algorithm-reference-library/workflows/notebooks
 `
+
 `
 jupyter notebook --no-browser --port=1895
 `
