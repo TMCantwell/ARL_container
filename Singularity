@@ -28,6 +28,7 @@ pip install pytest
 pip install pylint
 pip install mpi4py
 pip install jupyter
+pip install matplotlib
 git clone https://github.com/SKA-ScienceDataProcessor/algorithm-reference-library
 cd algorithm-reference-library
 pip install -r requirements.txt
