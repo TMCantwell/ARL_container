@@ -18,7 +18,9 @@ yum -y install python36u-devel python36u-pip python36u-tkinter python-virtualenv
 export WORKON_HOME=$HOME/.virtualenvs
 source /usr/bin/virtualenvwrapper.sh
 yum -y install graphviz
-yum -y install openmpi mpi4py-openmpi
+yum -y install mpich-devel mpich-autoload
+yum -y install openmpi-devel mpi4py-openmpi
+export CC=/usr/lib64/openmpi/bin/mpicc
 yum -y install cfitsio-devel
 pip3 install pipenv
 virtualenv -p python3.6 /arlvenv
@@ -36,8 +38,6 @@ python setup.py install
 git-lfs pull
 export PYTHONPATH=/algorithm-reference-library:$PYTHONPATH
 add2virtualenv /algorithm-reference-library
-cd ..
-chmod 755 algorithm-reference-library
 
 %environment
 alias start-arlvenv="source /arlvenv/bin/activate"
