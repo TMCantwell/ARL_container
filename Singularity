@@ -30,6 +30,7 @@ pip install mpi4py
 pip install jupyter
 pip install matplotlib
 git clone https://github.com/SKA-ScienceDataProcessor/algorithm-reference-library
+chmod 755 algorithm-reference-library
 cd algorithm-reference-library
 pip install -r requirements.txt
 python setup.py install
