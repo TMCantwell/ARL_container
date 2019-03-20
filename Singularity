@@ -22,6 +22,27 @@ yum -y install mpich-devel mpich-autoload
 yum -y install openmpi-devel mpi4py-openmpi
 export CC=/usr/lib64/openmpi/bin/mpicc
 yum -y install cfitsio-devel
+yum -y install cmake cmake-gui gcc-gfortran gcc-c++ flex bison \
+       blas blas-devel  lapack lapack-devel cfitsio cfitsio-devel \
+       wcslib wcslib-devel ncurses ncurses-devel readline readline-devel\
+       python-devel boost boost-devel fftw fftw-devel hdf5 hdf5-devel\
+       numpy boost-python34
+ln -s /usr/lib64/libboost_python3.so.1.53.0 /usr/lib64/libboost_python-py36.so
+wget ftp://ftp.astron.nl/outgoing/Measures/WSRT_Measures.ztar
+mkdir WSRT_Measures
+tar -C WSRT_Measures -xzvf WSRT_Measures.ztar
+git clone https://github.com/casacore/casacore
+cd casacore
+mkdir build
+cd build
+cmake -DDATA_DIR=/WSRT_Measures -DUSE_FFTW3=ON -DUSE_OPENMP=ON -DBUILD_PYTHON=OFF -DBUILD_PYTHON3=ON -DUSE_THREADS=ON \
+       -DPYTHON3_INCLUDE_DIR=/usr/include/python3.6m -DPYTHON3_LIBRARY=/usr/lib64/libpython3.6m.so \
+       -DPYTHON3_EXECUTABLE=/usr/bin/python3.6m  \
+       -DPYTHON3_NUMPY_INCLUDE_DIRS=/usr/lib64/python3.6/site-packages/numpy/core/include \
+       -DPYTHON3_Boost_LIBRARIES=/usr/lib64/libboost_python3-mt.so ..
+make 
+make install
+cd /
 pip3 install pipenv
 virtualenv -p python3.6 /arlvenv
 alias start-arlvenv="source /arlvenv/bin/activate"
