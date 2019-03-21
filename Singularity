@@ -28,6 +28,7 @@ yum -y install cmake cmake-gui gcc-gfortran gcc-c++ flex bison \
        python-devel boost boost-devel fftw fftw-devel hdf5 hdf5-devel\
        numpy boost-python34
 ln -s /usr/lib64/libboost_python3.so.1.53.0 /usr/lib64/libboost_python-py36.so
+pip3.6 install numpy
 wget ftp://ftp.astron.nl/outgoing/Measures/WSRT_Measures.ztar
 mkdir WSRT_Measures
 tar -C WSRT_Measures -xzvf WSRT_Measures.ztar
